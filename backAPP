@@ -12,7 +12,7 @@ if [ $isnotdiff != "0" ];then
 	echo `jdate +%E`|mutt -s "backup of proposal" saeb.m.13@gmail.com -a /run/media/saeb/new/.proposal/backup/`jdate +%h%y%m%d%H%M-%S`.zip
 	echo -e `jdate +%E`" پشتیبان تهیه شد""\n" >>/tmp/proposalbackup.log
 else
-        echo -e `jdate +%E`" بک آپ نیاز نشد.خاک تو سر کون گشادت""\n" >>/tmp/proposalbackup.log
+        echo -e `jdate +%E`" بک آپ نیاز نشد.خاک تو سرت""\n" >>/tmp/proposalbackup.log
 
 
 fi
