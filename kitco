@@ -1,0 +1,16 @@
+#!/bin/bash
+#while [ True ] app needs imagemagick freetype2 ghostscript
+#do
+	wget  -P /tmp/ "http://www.kitco.com/images/live/gold.gif"
+	convert /tmp/gold.gif  -font "Vazir-Bold" -pointsize 20 \
+          -draw "gravity south \
+                 fill yellow  text -50,70 '$(jdate +%E|fribidi)' \
+                  " \
+          /tmp/gold.gif.jpeg
+	feh -F --zoom 270 /tmp/gold.gif.jpeg &
+	#notify-send --expire-time=295000  "$(jdate)"
+	sleep 300
+	killall feh
+	rm /tmp/gold.gif*
+	exec kitco
+#done

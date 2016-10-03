@@ -1,0 +1,21 @@
+#!/bin/bash
+#first compare two folder if they have same file or not
+diff /run/media/saeb/ftp/proposal /run/media/saeb/new/.proposal/latest/proposal >/dev/null 2>&1 
+#if they have some diffrence isnotdiff variable will be anythung but 0
+isnotdiff=$?
+#echo $isnotdiff
+if [ $isnotdiff != "0" ];then
+#	echo "they have some diffrence"
+	rm -r /run/media/saeb/new/.proposal/latest/*
+	zip -r -j  /run/media/saeb/new/.proposal/backup/`jdate +%h%y%m%d%H%M-%S`.zip /run/media/saeb/ftp/proposal
+	cp -r  /run/media/saeb/ftp/proposal/ /run/media/saeb/new/.proposal/latest
+	echo `jdate +%E`|mutt -s "backup of proposal" saeb.m.13@gmail.com -a /run/media/saeb/new/.proposal/backup/`jdate +%h%y%m%d%H%M-%S`.zip
+	echo -e `jdate +%E`" پشتیبان تهیه شد""\n" >>/tmp/proposalbackup.log
+else
+        echo -e `jdate +%E`" بک آپ نیاز نشد.خاک تو سر کون گشادت""\n" >>/tmp/proposalbackup.log
+
+
+fi
+
+
+
