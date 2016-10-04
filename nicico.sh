@@ -5,7 +5,7 @@ while ([ True ])
 do
 	nmcli con up nabian  2>/dev/null
 	status=$?
-	echo $status
+	#echo $status
 	if [ $status == "0" ];then
 		jdate >/tmp/nabian.log
 	fi
