@@ -1,0 +1,17 @@
+#!/bin/bash
+pidnumber=$$
+notify-send "$pidnumber"
+echo $pidnumber > /tmp/pidnicico
+touch /tmp/nicico.log
+touch /tmp/nicico.error
+i=0
+while [ True ];do
+	sleep 60
+	nmcli con up id nicico  >>/dev/null 2>&1
+	if [ $? == 0 ];then
+		i=$((i+1))
+		echo -e  $i `date` "\n">>/tmp/nicico.log
+	else
+		echo -e `date` "\n">>/tmp/nicico.error
+	fi
+done
