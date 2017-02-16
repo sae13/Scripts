@@ -1,0 +1,9 @@
+#!/bin/bash
+#it needs xscreensaver x11-xserver-utils
+#file /etc/kbd/config BLANK_TIME=0 and POWERDOWN_time=0
+#more info in https://www.raspberrypi.org/forums/viewtopic.php?f=91&t=57552
+xset s noblank
+xset s off
+xset -dpms
+xscreensaver -no-splash
+xset q > /tmp/xsetblank
