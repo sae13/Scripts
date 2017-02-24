@@ -1,0 +1,8 @@
+#!/bin/bash
+logfile="/home/pi/Log/apt" 
+namee=`jdate +%q%Y%m%d`
+updatemsg=`apt update |tac |sed -n 1p`
+upgrademsg=`apt upgrade |tac|sed -n 1p`
+echo $name >>  $logfile
+echo $updatemsg >> $logfile
+echo $upgrademsg >>  $logfile
