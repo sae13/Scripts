@@ -16,7 +16,7 @@ mkdir -p ~/.fonts/rastikerdar 2>/dev/null
 
 for font_name in ${fonts_array[*]}
     do
-    echo -e"let Download "$font_name"\n in /tmp/rastikerdar and install in\n"$HOME"/.fonts/rastikerdar\n"
+    echo -e "let Download "$font_name"\n in /tmp/rastikerdar and install in\n"$HOME"/.fonts/rastikerdar\n"
     new_font_address="https://github.com/"`curl -Ls https://github.com/rastikerdar/$font_name-font/releases/latest|grep -m 1 -o "\/.*\.zip"`
     wget -O /tmp/rastikerdar/$font_name.zip $new_font_address
     unzip -n /tmp/rastikerdar/$font_name.zip  -d ~/.fonts/rastikerdar
